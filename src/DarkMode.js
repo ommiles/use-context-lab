@@ -1,3 +1,5 @@
+import { Toggle } from './Toggle';
+
 export const DarkMode = ({ background, setBackground }) => {
   let clickedClass = 'clicked';
   let body = document.body;
@@ -14,7 +16,6 @@ export const DarkMode = ({ background, setBackground }) => {
     : body.classList.add(lightTheme);
 
   const toggleTheme = e => {
-    console.log(e.target);
     if (theme === darkTheme) {
       body.classList.replace(darkTheme, lightTheme);
       e.target.classList.remove(clickedClass);
@@ -30,11 +31,11 @@ export const DarkMode = ({ background, setBackground }) => {
 
   return (
     <div>
-      <button
-        className={theme === 'dark' ? clickedClass : ''}
-        id='darkMode'
-        onClick={toggleTheme}
-      ></button>
+      <Toggle
+        theme={theme}
+        toggleTheme={toggleTheme}
+        clickedClass={clickedClass}
+      />
     </div>
   );
 };

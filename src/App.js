@@ -2,11 +2,11 @@ import { useContext, useState } from 'react';
 import { DarkMode } from './DarkMode';
 import logo from './logo.svg';
 import './App.css';
-import { ColorContext } from './ColorContext';
+// import { ColorContext } from './ColorContext';
 
 function App() {
   const [background, setBackground] = useState(true);
-  const colors = useContext(ColorContext);
+  // const colors = useContext(ColorContext);
 
   return (
     <div
