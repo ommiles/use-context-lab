@@ -1,27 +1,22 @@
 import { useContext, useState } from 'react';
+import { DarkMode } from './DarkMode';
 import logo from './logo.svg';
 import './App.css';
 import { ColorContext } from './ColorContext';
 
 function App() {
-  const colors = useContext(ColorContext);
   const [background, setBackground] = useState(true);
+  const colors = useContext(ColorContext);
 
   return (
     <div
       className='App'
       id='container'
-      style={{
-        backgroundColor: background === true ? colors.blue : colors.red,
-      }}
+      // style={{
+      //   backgroundColor: background === true ? colors.blue : colors.red,
+      // }}
     >
-      <button onClick={() => setBackground(!background)}>
-        {background === true ? (
-          <img alt='Light Mode Icon'></img>
-        ) : (
-          <img alt='Dark Mode Icon'></img>
-        )}
-      </button>
+      <DarkMode background={background} setBackground={setBackground} />
       <header className='App-header'>
         <img src={logo} className='App-logo' alt='logo' />
         <p>
